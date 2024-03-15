@@ -351,7 +351,7 @@ const ProductDetails = ({params}) => {
         },
       ],
     });
-
+    console.log("Analytics-----call for add to cart");
     setIsLoading(true);
     const isAuthenticated = await checkAuthentication();
     const headers = {

@@ -92,6 +92,8 @@ const Card = ({
               .then(res => {
                 dispatch(addSaveditems(res?.data?.data));
                 showToastNotification("Item added to the wishlist", 1);
+                window?.fbq("track", "AddToWishlist");
+                console.log("handle wishlist analytics");
                 const ids = res?.data?.data.map(item => {
                   return item?.id;
                 });
@@ -124,8 +126,6 @@ const Card = ({
           .catch(err => console.log(err));
   };
   const handleWhislistCard = async e => {
-    window?.fbq("track", "AddToWishlist");
-    console.log("handle wishlist analytics");
     e.stopPropagation();
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated === false) {
