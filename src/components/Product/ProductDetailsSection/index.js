@@ -337,27 +337,27 @@ const ProductDetails = ({params}) => {
   // };
 
   const handleAddToCart = async () => {
-    window?.gtag("event", "add_to_cart", {
-      items: [
-        {
-          id: "CHLOEKINGBED-GREY",
-          name: "Chloe King Size Double Bed in Grey Color",
-          list_name: "Search Results",
-          brand: "Cityfurnish",
-          category: "Home Furniture",
-          list_position: 1,
-          quantity: 1,
-          price: "899",
-        },
-      ],
-    });
-    console.log("Analytics-----call for add to cart");
+    // window?.gtag("event", "ggfdf", {
+    //   items: [
+    //     {
+    //       id: "CHLOEKINGBED-GREY",
+    //       name: "Chloe King Size Double Bed in Grey Color",
+    //       list_name: "Search Results",
+    //       brand: "Cityfurnish",
+    //       category: "Home Furniture",
+    //       list_position: 1,
+    //       quantity: 1,
+    //       price: "899",
+    //     },
+    //   ],
+    // });
+    // console.log("Analytics-----call for add to cart");
+    console.log("pragatiiiiiiiiiiiiii");
     setIsLoading(true);
     const isAuthenticated = await checkAuthentication();
     const headers = {
       "Content-Type": "application/json",
     };
-    // const userId = getLocalStorage("user_id");
     const userId = decrypt(getLocalStorage("_ga"));
     const tempUserId = decryptBase64(getLocalStorage("tempUserID"));
     const userIdToUse = isAuthenticated ? userId : tempUserId;
@@ -803,13 +803,29 @@ const ProductDetails = ({params}) => {
 
           <button
             onClick={
-              soldOut
-                ? handleNotifyMe
-                : cartItems?.length === 0
-                ? handleAddToCart
-                : isItemInCart
-                ? handleGoToCart
-                : handleAddToCart
+              () => {
+                window?.gtag("event", "testEvent", {
+                  items: [
+                    {
+                      id: "CHLOEKINGBED-GREY",
+                      name: "Chloe King Size Double Bed in Grey Color",
+                      list_name: "Search Results",
+                      brand: "Cityfurnish",
+                      category: "Home Furniture",
+                      list_position: 1,
+                      quantity: 1,
+                      price: "899",
+                    },
+                  ],
+                });
+              }
+              // soldOut
+              //   ? handleNotifyMe
+              //   : cartItems?.length === 0
+              //   ? handleAddToCart
+              //   : isItemInCart
+              //   ? handleGoToCart
+              //   : handleAddToCart
             }
             disabled={isLoading}
             className={styles.btn}
