@@ -168,7 +168,7 @@ export default function RootLayout({children}) {
         {process.env.NEXT_PUBLIC_PROD_ENV === "PRODUCTION" && (
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-05PLBRM6KD"
+            src="https://www.googletagmanager.com/gtag/js?id=G-D1HBBP4W9H"
           />
         )}
 
@@ -181,7 +181,7 @@ export default function RootLayout({children}) {
           dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'G-05PLBRM6KD');
+        gtag('config', 'G-D1HBBP4W9H');
         if (typeof gtag === 'function' && '${login}' !== '') {
           gtag('set', 'user_id', '${login}');
         }

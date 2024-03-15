@@ -124,6 +124,8 @@ const Card = ({
           .catch(err => console.log(err));
   };
   const handleWhislistCard = async e => {
+    window?.fbq("track", "AddToWishlist");
+    console.log("handle wishlist analytics");
     e.stopPropagation();
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated === false) {
